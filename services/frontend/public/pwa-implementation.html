@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Cinemart - Premier Bollywood Memorabilia Auctions</title>
+  <meta name="title" content="Cinemart - Premier Bollywood Memorabilia Auctions">
+  <meta name="description" content="India's premier destination for authenticated Bollywood cinema memorabilia, iconic props, costumes, and collectibles. Where Cinema Becomes Legacy.">
+  <meta name="keywords" content="bollywood, auction, memorabilia, collectibles, cinema, props, costumes, india">
+  <meta name="author" content="Cinemart">
+
+  <!-- PWA Primary Tags -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0A0A0F">
+  <meta name="background-color" content="#0A0A0F">
+
+  <!-- Apple Touch Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png">
+
+  <!-- Standard Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- MS Tiles -->
+  <meta name="msapplication-TileColor" content="#0A0A0F">
+  <meta name="msapplication-config" content="/browserconfig.xml">
+  <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+
+  <!-- Apple Mobile Web App -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cinemart">
+
+  <!-- Apple Splash Screens -->
+  <link rel="apple-touch-startup-image" href="/splash/splash-2048x2732.png"
+        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="/splash/splash-1668x2388.png"
+        media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="/splash/splash-1536x2048.png"
+        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="/splash/splash-1242x2688.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+  <link rel="apple-touch-startup-image" href="/splash/splash-1125x2436.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+  <link rel="apple-touch-startup-image" href="/splash/splash-750x1334.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cinemart.in/">
+  <meta property="og:title" content="Cinemart - Premier Bollywood Memorabilia Auctions">
+  <meta property="og:description" content="India's premier destination for authenticated Bollywood cinema memorabilia. Where Cinema Becomes Legacy.">
+  <meta property="og:image" content="/social-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Cinemart">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://cinemart.in/">
+  <meta name="twitter:title" content="Cinemart - Premier Bollywood Memorabilia Auctions">
+  <meta name="twitter:description" content="India's premier destination for authenticated Bollywood cinema memorabilia.">
+  <meta name="twitter:image" content="/social-share.png">
+  <meta name="twitter:creator" content="@cinemart">
+
+  <!-- Additional SEO -->
+  <link rel="canonical" href="https://cinemart.in/">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0A0A0F 0%, #0F0F1A 100%);
+      color: #F5F0E8;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 56px;
+      background: linear-gradient(135deg, #C9A84C, #E8D5A3, #C9A84C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #A09070;
+      margin-bottom: 48px;
+      font-size: 20px;
+    }
+
+    .card {
+      background: #141420;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      color: #C9A84C;
+      font-size: 28px;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    h3 {
+      color: #E8D5A3;
+      font-size: 20px;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 16px;
+      color: #F5F0E8;
+    }
+
+    .code-block {
+      background: #0A0A0F;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 16px 0;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #C9A84C;
+      font-weight: 600;
+    }
+
+    button {
+      background: linear-gradient(135deg, #C9A84C, #E8D5A3);
+      color: #0A0A0F;
+      border: none;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 8px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .status-card {
+      background: rgba(46, 204, 113, 0.1);
+      border-left: 4px solid #2ECC71;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .error-card {
+      background: rgba(231, 76, 60, 0.1);
+      border-left: 4px solid #E74C3C;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .warning-card {
+      background: rgba(255, 193, 7, 0.1);
+      border-left: 4px solid #FFC107;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .status-online {
+      background: #2ECC71;
+      box-shadow: 0 0 8px #2ECC71;
+    }
+
+    .status-offline {
+      background: #E74C3C;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .decoration {
+      text-align: center;
+      color: #C9A84C;
+      font-size: 24px;
+      letter-spacing: 8px;
+      margin: 32px 0;
+    }
+
+    #installPrompt {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #C9A84C, #E8D5A3);
+      color: #0A0A0F;
+      padding: 20px 32px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+      max-width: 90%;
+    }
+
+    #installPrompt.show {
+      display: block;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateX(-50%) translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .install-prompt-text {
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 16px;
+      }
+
+      .logo {
+        font-size: 40px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">Cinemart</div>
+    <div class="subtitle">Progressive Web App - Live Implementation</div>
+
+    <div class="decoration">✦ ✦ ✦</div>
+
+    <div class="card">
+      <h2>📱 PWA Status Dashboard</h2>
+
+      <div id="pwaStatus">
+        <p><span class="status-indicator status-offline"></span> Checking PWA compatibility...</p>
+      </div>
+
+      <h3>Service Worker</h3>
+      <div id="swStatus">
+        <p>Checking service worker status...</p>
+      </div>
+
+      <h3>Installation Status</h3>
+      <div id="installStatus">
+        <p>Checking installation status...</p>
+      </div>
+
+      <h3>Network Status</h3>
+      <div id="networkStatus">
+        <p><span class="status-indicator status-online"></span> Online</p>
+      </div>
+
+      <h3>Notification Permission</h3>
+      <div id="notificationStatus">
+        <p>Checking notification permission...</p>
+      </div>
+
+      <h3>Display Mode</h3>
+      <div id="displayMode">
+        <p>Checking display mode...</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🎯 Actions</h2>
+
+      <div class="button-group">
+        <button onclick="installApp()" id="installBtn">Install App</button>
+        <button onclick="requestNotifications()">Enable Notifications</button>
+        <button onclick="testOffline()">Test Offline Mode</button>
+        <button onclick="clearCache()">Clear Cache</button>
+        <button onclick="checkForUpdates()">Check for Updates</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📊 Implementation Code</h2>
+
+      <h3>1. Service Worker Registration</h3>
+      <div class="code-block">// In your main entry file (e.g., index.tsx or App.tsx)
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', async () => {
+    try {
+      const registration = await navigator.serviceWorker.register('/service-worker.js');
+      console.log('✅ Service Worker registered:', registration.scope);
+
+      // Check for updates
+      registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing;
+
+        newWorker?.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            // New version available
+            showUpdateNotification();
+          }
+        });
+      });
+
+      // Periodic update check
+      setInterval(() => {
+        registration.update();
+      }, 60000); // Check every minute
+
+    } catch (error) {
+      console.error('❌ Service Worker registration failed:', error);
+    }
+  });
+}</div>
+
+      <h3>2. Install Prompt Handler</h3>
+      <div class="code-block">let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent the default install prompt
+  e.preventDefault();
+
+  // Store the event for later use
+  deferredPrompt = e;
+
+  // Show your custom install button
+  showInstallButton();
+
+  // Analytics
+  console.log('💡 Install prompt available');
+});
+
+async function installApp() {
+  if (!deferredPrompt) {
+    alert('Install prompt not available');
+    return;
+  }
+
+  // Show the install prompt
+  deferredPrompt.prompt();
+
+  // Wait for user choice
+  const { outcome } = await deferredPrompt.userChoice;
+
+  console.log(`User response: ${outcome}`);
+
+  // Clear the deferred prompt
+  deferredPrompt = null;
+
+  // Hide install button
+  hideInstallButton();
+}
+
+// Track successful installation
+window.addEventListener('appinstalled', () => {
+  console.log('🎉 PWA installed successfully');
+  // Send analytics event
+  gtag('event', 'pwa_installed');
+});</div>
+
+      <h3>3. Push Notifications Setup</h3>
+      <div class="code-block">async function requestNotifications() {
+  if (!('Notification' in window)) {
+    alert('Notifications not supported');
+    return;
+  }
+
+  const permission = await Notification.requestPermission();
+
+  if (permission === 'granted') {
+    console.log('✅ Notification permission granted');
+
+    // Subscribe to push notifications
+    const registration = await navigator.serviceWorker.ready;
+
+    const subscription = await registration.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY)
+    });
+
+    // Send subscription to server
+    await fetch('/api/notifications/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(subscription)
+    });
+
+    // Test notification
+    new Notification('Welcome to Cinemart!', {
+      body: 'You will now receive alerts for auction updates',
+      icon: '/icons/icon-192x192.png',
+      badge: '/icons/badge-72x72.png',
+      tag: 'welcome',
+      requireInteraction: false
+    });
+  } else {
+    console.log('❌ Notification permission denied');
+  }
+}
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, '+')
+    .replace(/_/g, '/');
+  const rawData = window.atob(base64);
+  return Uint8Array.from([...rawData].map(char => char.charCodeAt(0)));
+}</div>
+
+      <h3>4. Offline Detection</h3>
+      <div class="code-block">// Monitor network status
+window.addEventListener('online', () => {
+  console.log('🌐 Back online');
+  showToast('Connection restored', 'success');
+  syncPendingData();
+});
+
+window.addEventListener('offline', () => {
+  console.log('📡 Gone offline');
+  showToast('You are offline. Some features may be limited.', 'warning');
+});
+
+// Check current status
+const isOnline = navigator.onLine;
+console.log(`Network status: ${isOnline ? 'Online' : 'Offline'}`);</div>
+
+      <h3>5. Display Mode Detection</h3>
+      <div class="code-block">// Detect if app is running in standalone mode
+function isStandalone() {
+  // iOS
+  const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const isStandaloneiOS = window.navigator.standalone === true;
+
+  // Android & Desktop
+  const isStandaloneAndroid = window.matchMedia('(display-mode: standalone)').matches;
+
+  return isStandaloneiOS || isStandaloneAndroid;
+}
+
+if (isStandalone()) {
+  console.log('🚀 Running as installed app');
+  // Hide browser-specific UI, show app-specific features
+  document.body.classList.add('standalone-mode');
+} else {
+  console.log('🌐 Running in browser');
+  // Show install prompt
+}</div>
+
+      <h3>6. App Update Handler</h3>
+      <div class="code-block">function showUpdateNotification() {
+  const updateBanner = document.createElement('div');
+  updateBanner.innerHTML = `
+    &lt;div style="position: fixed; top: 0; left: 0; right: 0;
+                background: linear-gradient(135deg, #C9A84C, #E8D5A3);
+                color: #0A0A0F; padding: 16px; text-align: center; z-index: 9999;"&gt;
+      &lt;p style="margin: 0 0 8px 0; font-weight: 600;"&gt;
+        New version available!
+      &lt;/p&gt;
+      &lt;button onclick="updateApp()"
+              style="background: #0A0A0F; color: #C9A84C; border: none;
+                     padding: 8px 24px; border-radius: 6px; cursor: pointer;"&gt;
+        Update Now
+      &lt;/button&gt;
+      &lt;button onclick="this.parentElement.parentElement.remove()"
+              style="background: transparent; color: #0A0A0F; border: 1px solid #0A0A0F;
+                     padding: 8px 24px; border-radius: 6px; cursor: pointer; margin-left: 8px;"&gt;
+        Later
+      &lt;/button&gt;
+    &lt;/div&gt;
+  `;
+  document.body.appendChild(updateBanner);
+}
+
+function updateApp() {
+  navigator.serviceWorker.ready.then(registration => {
+    registration.waiting?.postMessage({ type: 'SKIP_WAITING' });
+  });
+
+  // Reload page to activate new service worker
+  window.location.reload();
+}</div>
+
+      <h3>7. Cache Management</h3>
+      <div class="code-block">async function clearCache() {
+  if ('caches' in window) {
+    const cacheNames = await caches.keys();
+
+    await Promise.all(
+      cacheNames.map(cacheName => caches.delete(cacheName))
+    );
+
+    console.log('🗑️ All caches cleared');
+    alert('Cache cleared successfully! Please reload the page.');
+  }
+}
+
+async function getCacheSize() {
+  if ('storage' in navigator && 'estimate' in navigator.storage) {
+    const { usage, quota } = await navigator.storage.estimate();
+    const percentUsed = (usage / quota * 100).toFixed(2);
+
+    console.log(`Storage: ${formatBytes(usage)} / ${formatBytes(quota)} (${percentUsed}%)`);
+    return { usage, quota, percentUsed };
+  }
+}
+
+function formatBytes(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + ' KB';
+  return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+}</div>
+    </div>
+
+    <div class="card">
+      <h2>✅ Checklist for Production</h2>
+
+      <div class="checklist">
+        <p>✅ <strong>HTTPS enabled</strong> - Required for service workers</p>
+        <p>✅ <strong>manifest.json</strong> properly configured with all required fields</p>
+        <p>✅ <strong>Icons generated</strong> in all required sizes (16px to 512px)</p>
+        <p>✅ <strong>Service worker</strong> registered and active</p>
+        <p>✅ <strong>Offline fallback</strong> page created</p>
+        <p>✅ <strong>Theme colors</strong> set consistently across all meta tags</p>
+        <p>✅ <strong>Apple touch icons</strong> for iOS devices</p>
+        <p>✅ <strong>Splash screens</strong> for iOS devices</p>
+        <p>✅ <strong>Open Graph</strong> and Twitter Card meta tags</p>
+        <p>✅ <strong>Network detection</strong> handlers implemented</p>
+        <p>✅ <strong>Install prompt</strong> custom UI ready</p>
+        <p>✅ <strong>Update notification</strong> system in place</p>
+        <p>✅ <strong>Push notifications</strong> configured (optional)</p>
+        <p>✅ <strong>Analytics tracking</strong> for PWA events</p>
+        <p>✅ <strong>Lighthouse audit</strong> passing with 90+ PWA score</p>
+      </div>
+    </div>
+
+    <div class="decoration">✦ ✦ ✦</div>
+
+    <div style="text-align: center; color: #A09070; margin-top: 32px;">
+      <p><em>All items are subject to expert authentication.</em></p>
+      <p><em>Cinemart is not affiliated with any film studio or production house.</em></p>
+    </div>
+  </div>
+
+  <!-- Custom Install Prompt -->
+  <div id="installPrompt">
+    <div class="install-prompt-text">
+      Install Cinemart app for faster access and live bidding notifications
+    </div>
+    <button onclick="installApp()">Install Now</button>
+    <button onclick="dismissInstall()" style="background: rgba(10, 10, 15, 0.5); color: #F5F0E8;">
+      Maybe Later
+    </button>
+  </div>
+
+  <script>
+    let deferredPrompt;
+    let swRegistration;
+
+    window.addEventListener('load', async () => {
+      await checkPWAStatus();
+      await registerServiceWorker();
+      setupInstallPrompt();
+      setupNetworkHandlers();
+      checkDisplayMode();
+      checkNotificationStatus();
+    });
+
+    async function checkPWAStatus() {
+      const statusDiv = document.getElementById('pwaStatus');
+
+      if ('serviceWorker' in navigator && 'caches' in window && 'PushManager' in window) {
+        statusDiv.innerHTML = `
+          <div class="status-card">
+            <p><span class="status-indicator status-online"></span> <strong>PWA Compatible</strong></p>
+            <p>Your browser supports all PWA features!</p>
+          </div>
+        `;
+      } else {
+        statusDiv.innerHTML = `
+          <div class="error-card">
+            <p><span class="status-indicator status-offline"></span> <strong>Limited PWA Support</strong></p>
+            <p>Some PWA features may not be available in this browser.</p>
+          </div>
+        `;
+      }
+    }
+
+    async function registerServiceWorker() {
+      const swDiv = document.getElementById('swStatus');
+
+      if ('serviceWorker' in navigator) {
+        try {
+          swRegistration = await navigator.serviceWorker.register('/service-worker.js');
+
+          swDiv.innerHTML = `
+            <div class="status-card">
+              <p><span class="status-indicator status-online"></span> <strong>Service Worker Active</strong></p>
+              <p>Scope: ${swRegistration.scope}</p>
+              <p>State: ${swRegistration.active?.state || 'Installing...'}</p>
+            </div>
+          `;
+
+          swRegistration.addEventListener('updatefound', () => {
+            const newWorker = swRegistration.installing;
+            newWorker?.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                showUpdateBanner();
+              }
+            });
+          });
+
+        } catch (error) {
+          swDiv.innerHTML = `
+            <div class="error-card">
+              <p><strong>Service Worker Registration Failed</strong></p>
+              <p>${error.message}</p>
+            </div>
+          `;
+        }
+      } else {
+        swDiv.innerHTML = `
+          <div class="warning-card">
+            <p><strong>Service Workers Not Supported</strong></p>
+          </div>
+        `;
+      }
+    }
+
+    function setupInstallPrompt() {
+      const installDiv = document.getElementById('installStatus');
+
+      const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent);
+      const isStandaloneIOS = window.navigator.standalone === true;
+      const isStandaloneAndroid = window.matchMedia('(display-mode: standalone)').matches;
+
+      if (isStandaloneIOS || isStandaloneAndroid) {
+        installDiv.innerHTML = `
+          <div class="status-card">
+            <p>✅ <strong>App Installed</strong></p>
+            <p>Cinemart is running as an installed app</p>
+          </div>
+        `;
+        document.getElementById('installBtn').disabled = true;
+        document.getElementById('installBtn').textContent = 'Already Installed';
+      } else {
+        installDiv.innerHTML = `
+          <div class="warning-card">
+            <p>📱 <strong>Not Installed</strong></p>
+            <p>Install Cinemart for the best experience</p>
+          </div>
+        `;
+      }
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+
+        setTimeout(() => {
+          document.getElementById('installPrompt').classList.add('show');
+        }, 3000);
+      });
+
+      window.addEventListener('appinstalled', () => {
+        installDiv.innerHTML = `
+          <div class="status-card">
+            <p>🎉 <strong>Installation Successful!</strong></p>
+            <p>Cinemart has been added to your device</p>
+          </div>
+        `;
+        document.getElementById('installPrompt').classList.remove('show');
+      });
+    }
+
+    async function installApp() {
+      if (!deferredPrompt) {
+        alert('Install is not available at this time. Try using Chrome, Edge, or Safari.');
+        return;
+      }
+
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+
+      console.log(`Install outcome: ${outcome}`);
+      deferredPrompt = null;
+    }
+
+    function dismissInstall() {
+      document.getElementById('installPrompt').classList.remove('show');
+    }
+
+    function setupNetworkHandlers() {
+      const networkDiv = document.getElementById('networkStatus');
+
+      function updateNetworkStatus() {
+        if (navigator.onLine) {
+          networkDiv.innerHTML = `
+            <div class="status-card">
+              <p><span class="status-indicator status-online"></span> <strong>Online</strong></p>
+            </div>
+          `;
+        } else {
+          networkDiv.innerHTML = `
+            <div class="error-card">
+              <p><span class="status-indicator status-offline"></span> <strong>Offline</strong></p>
+              <p>Some features may be limited</p>
+            </div>
+          `;
+        }
+      }
+
+      window.addEventListener('online', updateNetworkStatus);
+      window.addEventListener('offline', updateNetworkStatus);
+
+      updateNetworkStatus();
+    }
+
+    function checkDisplayMode() {
+      const displayDiv = document.getElementById('displayMode');
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+                          window.navigator.standalone === true;
+
+      if (isStandalone) {
+        displayDiv.innerHTML = `
+          <div class="status-card">
+            <p>🚀 <strong>Standalone Mode</strong></p>
+            <p>Running as installed application</p>
+          </div>
+        `;
+      } else {
+        displayDiv.innerHTML = `
+          <p>🌐 <strong>Browser Mode</strong></p>
+        `;
+      }
+    }
+
+    function checkNotificationStatus() {
+      const notifDiv = document.getElementById('notificationStatus');
+
+      if (!('Notification' in window)) {
+        notifDiv.innerHTML = `
+          <div class="warning-card">
+            <p>Notifications not supported in this browser</p>
+          </div>
+        `;
+        return;
+      }
+
+      const permission = Notification.permission;
+
+      if (permission === 'granted') {
+        notifDiv.innerHTML = `
+          <div class="status-card">
+            <p>✅ <strong>Enabled</strong></p>
+          </div>
+        `;
+      } else if (permission === 'denied') {
+        notifDiv.innerHTML = `
+          <div class="error-card">
+            <p>❌ <strong>Blocked</strong></p>
+            <p>Enable in browser settings to receive auction alerts</p>
+          </div>
+        `;
+      } else {
+        notifDiv.innerHTML = `
+          <p>⚠️ <strong>Not enabled</strong></p>
+        `;
+      }
+    }
+
+    async function requestNotifications() {
+      if (!('Notification' in window)) {
+        alert('Notifications are not supported in this browser');
+        return;
+      }
+
+      const permission = await Notification.requestPermission();
+
+      if (permission === 'granted') {
+        new Notification('Cinemart Notifications Enabled', {
+          body: 'You will receive alerts for auction updates and when you are outbid',
+          icon: '/icons/icon-192x192.png',
+          badge: '/icons/icon-72x72.png',
+          tag: 'welcome'
+        });
+        checkNotificationStatus();
+      } else {
+        alert('Notification permission denied');
+      }
+    }
+
+    function testOffline() {
+      window.location.href = '/offline.html';
+    }
+
+    async function clearCache() {
+      if (confirm('Clear all cached data? The page will reload.')) {
+        if ('caches' in window) {
+          const cacheNames = await caches.keys();
+          await Promise.all(cacheNames.map(name => caches.delete(name)));
+        }
+        window.location.reload();
+      }
+    }
+
+    function checkForUpdates() {
+      if (swRegistration) {
+        swRegistration.update();
+        alert('Checking for updates...');
+      } else {
+        alert('Service worker not registered');
+      }
+    }
+
+    function showUpdateBanner() {
+      const banner = document.createElement('div');
+      banner.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #C9A84C, #E8D5A3);
+        color: #0A0A0F;
+        padding: 16px;
+        text-align: center;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      `;
+
+      banner.innerHTML = `
+        <strong>New version available!</strong>
+        <button onclick="updateApp()" style="background: #0A0A0F; color: #C9A84C; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; margin-left: 16px;">
+          Update Now
+        </button>
+      `;
+
+      document.body.appendChild(banner);
+    }
+
+    function updateApp() {
+      if (swRegistration?.waiting) {
+        swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>

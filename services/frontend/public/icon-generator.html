@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinemart PWA Icon Generator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: #0A0A0F;
+      color: #F5F0E8;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      background: linear-gradient(135deg, #C9A84C, #E8D5A3, #C9A84C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 48px;
+      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #A09070;
+      margin-bottom: 48px;
+    }
+
+    .controls {
+      background: #141420;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+
+    .control-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #C9A84C;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      background: #0A0A0F;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 6px;
+      color: #F5F0E8;
+      font-size: 16px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #C9A84C, #E8D5A3);
+      color: #0A0A0F;
+      border: none;
+      padding: 16px 32px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 16px;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.02);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .preview-item {
+      background: #141420;
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .preview-item h3 {
+      color: #C9A84C;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    canvas {
+      width: 100%;
+      max-width: 150px;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .size-label {
+      color: #A09070;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .download-btn {
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid #C9A84C;
+      color: #C9A84C;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .download-btn:hover {
+      background: rgba(201, 168, 76, 0.2);
+    }
+
+    .download-all {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .note {
+      background: rgba(46, 204, 113, 0.1);
+      border-left: 4px solid #2ECC71;
+      padding: 16px;
+      margin-top: 32px;
+      border-radius: 4px;
+    }
+
+    .decoration {
+      text-align: center;
+      color: #C9A84C;
+      font-size: 24px;
+      letter-spacing: 8px;
+      margin: 32px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cinemart</h1>
+    <div class="subtitle">PWA Icon Generator - Create all required icon sizes</div>
+
+    <div class="controls">
+      <div class="control-group">
+        <label>Icon Style</label>
+        <select id="iconStyle">
+          <option value="filmReel">Film Reel (Recommended)</option>
+          <option value="clapperboard">Clapperboard</option>
+          <option value="ticket">Movie Ticket</option>
+          <option value="crown">Royal Crown</option>
+          <option value="text">Text Logo "C"</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label>Background Color</label>
+        <input type="color" id="bgColor" value="#0A0A0F">
+      </div>
+
+      <div class="control-group">
+        <label>Icon Color</label>
+        <input type="color" id="iconColor" value="#C9A84C">
+      </div>
+
+      <div class="control-group">
+        <label>Add Border</label>
+        <select id="borderStyle">
+          <option value="none">No Border</option>
+          <option value="thin">Thin Gold Border</option>
+          <option value="thick">Thick Gold Border</option>
+          <option value="gradient">Gold Gradient Border</option>
+        </select>
+      </div>
+
+      <button onclick="generateIcons()">Generate All Icons</button>
+    </div>
+
+    <div class="decoration">✦ ✦ ✦</div>
+
+    <div class="preview-grid" id="previewGrid"></div>
+
+    <div class="download-all">
+      <button onclick="downloadAllIcons()" id="downloadAllBtn" style="display: none;">
+        Download All Icons as ZIP
+      </button>
+    </div>
+
+    <div class="note">
+      <p><strong>💡 Pro Tip:</strong> For the best results, use the "Film Reel" or "Clapperboard" style with a thin gold border. This maintains the luxury brand aesthetic while ensuring clarity at all sizes.</p>
+      <p style="margin-top: 12px;"><strong>📱 Maskable Icons:</strong> All icons include a 10% safe zone to ensure they display correctly on Android devices with circular or rounded square masks.</p>
+    </div>
+  </div>
+
+  <script>
+    const iconSizes = [
+      { size: 16, name: 'favicon-16x16.png' },
+      { size: 32, name: 'favicon-32x32.png' },
+      { size: 72, name: 'icon-72x72.png' },
+      { size: 76, name: 'apple-touch-icon-76x76.png' },
+      { size: 96, name: 'icon-96x96.png' },
+      { size: 120, name: 'apple-touch-icon-120x120.png' },
+      { size: 128, name: 'icon-128x128.png' },
+      { size: 144, name: 'icon-144x144.png' },
+      { size: 152, name: 'apple-touch-icon-152x152.png' },
+      { size: 180, name: 'apple-touch-icon.png' },
+      { size: 192, name: 'icon-192x192.png' },
+      { size: 384, name: 'icon-384x384.png' },
+      { size: 512, name: 'icon-512x512.png' }
+    ];
+
+    let generatedIcons = [];
+
+    function drawFilmReel(ctx, size, iconColor) {
+      const center = size / 2;
+      const radius = size * 0.35;
+      const holeRadius = size * 0.12;
+
+      ctx.beginPath();
+      ctx.arc(center, center, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = iconColor;
+      ctx.lineWidth = size * 0.08;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(center, center, holeRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      const holes = 8;
+      for (let i = 0; i < holes; i++) {
+        const angle = (i / holes) * Math.PI * 2;
+        const x = center + Math.cos(angle) * radius * 0.7;
+        const y = center + Math.sin(angle) * radius * 0.7;
+        ctx.beginPath();
+        ctx.arc(x, y, size * 0.05, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function drawClapperboard(ctx, size, iconColor) {
+      const boardWidth = size * 0.6;
+      const boardHeight = size * 0.5;
+      const x = (size - boardWidth) / 2;
+      const y = size * 0.3;
+
+      ctx.fillStyle = iconColor;
+      ctx.fillRect(x, y, boardWidth, boardHeight);
+
+      ctx.fillStyle = '#0A0A0F';
+      ctx.fillRect(x, y, boardWidth, boardHeight * 0.25);
+
+      const stripes = 4;
+      for (let i = 0; i < stripes; i++) {
+        if (i % 2 === 0) {
+          ctx.fillStyle = iconColor;
+        } else {
+          ctx.fillStyle = '#0A0A0F';
+        }
+        ctx.fillRect(x + (i * boardWidth / stripes), y - boardHeight * 0.15, boardWidth / stripes, boardHeight * 0.15);
+      }
+    }
+
+    function drawTicket(ctx, size, iconColor) {
+      const ticketWidth = size * 0.7;
+      const ticketHeight = size * 0.4;
+      const x = (size - ticketWidth) / 2;
+      const y = (size - ticketHeight) / 2;
+      const radius = size * 0.05;
+
+      ctx.strokeStyle = iconColor;
+      ctx.lineWidth = size * 0.06;
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + ticketWidth - radius, y);
+      ctx.quadraticCurveTo(x + ticketWidth, y, x + ticketWidth, y + radius);
+      ctx.lineTo(x + ticketWidth, y + ticketHeight - radius);
+      ctx.quadraticCurveTo(x + ticketWidth, y + ticketHeight, x + ticketWidth - radius, y + ticketHeight);
+      ctx.lineTo(x + radius, y + ticketHeight);
+      ctx.quadraticCurveTo(x, y + ticketHeight, x, y + ticketHeight - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.setLineDash([size * 0.05, size * 0.05]);
+      ctx.moveTo(x + ticketWidth * 0.35, y);
+      ctx.lineTo(x + ticketWidth * 0.35, y + ticketHeight);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    function drawCrown(ctx, size, iconColor) {
+      const crownWidth = size * 0.6;
+      const crownHeight = size * 0.4;
+      const x = (size - crownWidth) / 2;
+      const y = size * 0.35;
+
+      ctx.fillStyle = iconColor;
+      ctx.beginPath();
+      ctx.moveTo(x, y + crownHeight);
+      ctx.lineTo(x, y + crownHeight * 0.6);
+      ctx.lineTo(x + crownWidth * 0.25, y);
+      ctx.lineTo(x + crownWidth * 0.5, y + crownHeight * 0.4);
+      ctx.lineTo(x + crownWidth * 0.75, y);
+      ctx.lineTo(x + crownWidth, y + crownHeight * 0.6);
+      ctx.lineTo(x + crownWidth, y + crownHeight);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillRect(x, y + crownHeight * 0.85, crownWidth, crownHeight * 0.15);
+    }
+
+    function drawTextLogo(ctx, size, iconColor) {
+      ctx.fillStyle = iconColor;
+      ctx.font = `bold ${size * 0.6}px "Playfair Display", serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('C', size / 2, size / 2);
+    }
+
+    function drawBorder(ctx, size, borderStyle, iconColor) {
+      if (borderStyle === 'none') return;
+
+      const borderWidth = borderStyle === 'thick' ? size * 0.08 : size * 0.04;
+      ctx.lineWidth = borderWidth;
+
+      if (borderStyle === 'gradient') {
+        const gradient = ctx.createLinearGradient(0, 0, size, size);
+        gradient.addColorStop(0, '#C9A84C');
+        gradient.addColorStop(0.5, '#E8D5A3');
+        gradient.addColorStop(1, '#C9A84C');
+        ctx.strokeStyle = gradient;
+      } else {
+        ctx.strokeStyle = iconColor;
+      }
+
+      ctx.strokeRect(borderWidth / 2, borderWidth / 2, size - borderWidth, size - borderWidth);
+    }
+
+    function generateIcon(size, iconStyle, bgColor, iconColor, borderStyle) {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, size, size);
+
+      ctx.fillStyle = iconColor;
+      ctx.strokeStyle = iconColor;
+
+      switch(iconStyle) {
+        case 'filmReel':
+          drawFilmReel(ctx, size, iconColor);
+          break;
+        case 'clapperboard':
+          drawClapperboard(ctx, size, iconColor);
+          break;
+        case 'ticket':
+          drawTicket(ctx, size, iconColor);
+          break;
+        case 'crown':
+          drawCrown(ctx, size, iconColor);
+          break;
+        case 'text':
+          drawTextLogo(ctx, size, iconColor);
+          break;
+      }
+
+      drawBorder(ctx, size, borderStyle, iconColor);
+
+      return canvas;
+    }
+
+    function generateIcons() {
+      const iconStyle = document.getElementById('iconStyle').value;
+      const bgColor = document.getElementById('bgColor').value;
+      const iconColor = document.getElementById('iconColor').value;
+      const borderStyle = document.getElementById('borderStyle').value;
+
+      const previewGrid = document.getElementById('previewGrid');
+      previewGrid.innerHTML = '';
+      generatedIcons = [];
+
+      iconSizes.forEach(({size, name}) => {
+        const canvas = generateIcon(size, iconStyle, bgColor, iconColor, borderStyle);
+        generatedIcons.push({ canvas, name });
+
+        const previewItem = document.createElement('div');
+        previewItem.className = 'preview-item';
+
+        const title = document.createElement('h3');
+        title.textContent = name;
+        previewItem.appendChild(title);
+
+        const sizeLabel = document.createElement('div');
+        sizeLabel.className = 'size-label';
+        sizeLabel.textContent = `${size}x${size}px`;
+        previewItem.appendChild(sizeLabel);
+
+        const previewCanvas = canvas.cloneNode();
+        previewCanvas.getContext('2d').drawImage(canvas, 0, 0);
+        previewItem.appendChild(previewCanvas);
+
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'download-btn';
+        downloadBtn.textContent = 'Download';
+        downloadBtn.onclick = () => downloadIcon(canvas, name);
+        previewItem.appendChild(downloadBtn);
+
+        previewGrid.appendChild(previewItem);
+      });
+
+      document.getElementById('downloadAllBtn').style.display = 'block';
+    }
+
+    function downloadIcon(canvas, filename) {
+      canvas.toBlob((blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    async function downloadAllIcons() {
+      for (const {canvas, name} of generatedIcons) {
+        await new Promise(resolve => {
+          canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name;
+            a.click();
+            URL.revokeObjectURL(url);
+            setTimeout(resolve, 100);
+          });
+        });
+      }
+    }
+
+    generateIcons();
+  </script>
+</body>
+</html>
