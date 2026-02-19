@@ -1,7 +1,9 @@
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { DemoModeEngine } from './components/DemoModeEngine';
 import Footer from './components/Footer';
+import { LiveTicker } from './components/LiveTicker';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
@@ -25,6 +27,8 @@ const App = () => {
       <AuthProvider>
         <div className="flex flex-col min-h-screen bg-gray-50">
           <Navbar />
+          <LiveTicker />
+          <DemoModeEngine />
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -46,7 +50,16 @@ const App = () => {
           </main>
           <Footer />
         </div>
-        <ToastContainer position="top-right" autoClose={4000} hideProgressBar={false} />
+        <ToastContainer
+          position="top-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="light"
+        />
       </AuthProvider>
     </Router>
   );
