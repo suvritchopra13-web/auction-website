@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemart - PWA Documentation Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0A0A0F 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #C9A84C 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card:hover {
+            background: rgba(201, 168, 76, 0.1);
+            border-color: #C9A84C;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(201, 168, 76, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #C9A84C;
+        }
+
+        .card-description {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #C9A84C;
+        }
+
+        .file-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .file-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #C9A84C;
+        }
+
+        .file-name {
+            font-weight: bold;
+            color: #C9A84C;
+            margin-bottom: 0.25rem;
+        }
+
+        .file-desc {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(201, 168, 76, 0.3);
+            color: #666;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            color: #C9A84C;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🎬 CINEMART</div>
+        <h1>PWA Documentation Hub</h1>
+        <p class="subtitle">Progressive Web App - Complete Implementation Guide</p>
+
+        <div class="grid">
+            <a href="index-pwa.html" class="card">
+                <div class="card-icon">📚</div>
+                <div class="card-title">Main Documentation</div>
+                <div class="card-description">
+                    Interactive documentation hub with overview of all PWA features and implementation guides.
+                </div>
+            </a>
+
+            <a href="icon-generator.html" class="card">
+                <div class="card-icon">🎨</div>
+                <div class="card-title">Icon Generator</div>
+                <div class="card-description">
+                    Generate all 13 required icon sizes (16px to 512px) from a single source image.
+                </div>
+            </a>
+
+            <a href="pwa-implementation.html" class="card">
+                <div class="card-icon">🧪</div>
+                <div class="card-title">Testing Dashboard</div>
+                <div class="card-description">
+                    Live testing tools to verify service worker, manifest, caching, and offline functionality.
+                </div>
+            </a>
+
+            <a href="pwa-install-guide.html" class="card">
+                <div class="card-icon">📱</div>
+                <div class="card-title">Installation Guide</div>
+                <div class="card-description">
+                    Step-by-step instructions for installing and testing the PWA on all platforms.
+                </div>
+            </a>
+
+            <a href="offline.html" class="card">
+                <div class="card-icon">📴</div>
+                <div class="card-title">Offline Page</div>
+                <div class="card-description">
+                    Preview the beautiful offline fallback page shown when users lose connection.
+                </div>
+            </a>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">📄 Markdown Documentation</h2>
+            <div class="file-list">
+                <div class="file-item">
+                    <div class="file-name">PWA-SUMMARY.md</div>
+                    <div class="file-desc">Complete overview - Start here! (15K)</div>
+                </div>
+                <div class="file-item">
+                    <div class="file-name">PWA-CHECKLIST.md</div>
+                    <div class="file-desc">Step-by-step implementation checklist (14K)</div>
+                </div>
+                <div class="file-item">
+                    <div class="file-name">PWA-QUICK-REFERENCE.md</div>
+                    <div class="file-desc">Essential code snippets (6.3K)</div>
+                </div>
+                <div class="file-item">
+                    <div class="file-name">PWA-README.md</div>
+                    <div class="file-desc">Full technical documentation (13K)</div>
+                </div>
+                <div class="file-item">
+                    <div class="file-name">PWA-ARCHITECTURE.md</div>
+                    <div class="file-desc">System architecture & diagrams (29K)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">⚡ Quick Start</h2>
+            <ol style="color: #aaa; line-height: 2; margin-left: 1.5rem;">
+                <li>Click <strong style="color: #C9A84C;">Icon Generator</strong> above to create all required icon sizes</li>
+                <li>Open <strong style="color: #C9A84C;">PWA-CHECKLIST.md</strong> for step-by-step implementation</li>
+                <li>Use the <strong style="color: #C9A84C;">Testing Dashboard</strong> to verify everything works</li>
+                <li>Follow the <strong style="color: #C9A84C;">Installation Guide</strong> to test on devices</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">✅ What's Included</h2>
+            <div style="color: #aaa; line-height: 1.8;">
+                <p><strong style="color: #C9A84C;">Core Files:</strong> manifest.json, service-worker.js, offline.html</p>
+                <p><strong style="color: #C9A84C;">Documentation:</strong> 6 comprehensive markdown files</p>
+                <p><strong style="color: #C9A84C;">Tools:</strong> Icon generator, testing dashboard, installation guide</p>
+                <p><strong style="color: #C9A84C;">Examples:</strong> React integration code (src-example-pwa-integration.tsx)</p>
+                <p><strong style="color: #C9A84C;">Design:</strong> Luxury Bollywood cinema aesthetic (deep charcoal & royal gold)</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>🎬 WHERE CINEMA BECOMES LEGACY</p>
+            <p style="margin-top: 0.5rem;">Cinemart Progressive Web App Documentation</p>
+        </footer>
+    </div>
+</body>
+</html>
